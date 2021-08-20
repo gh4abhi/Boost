@@ -26,8 +26,26 @@ public class Rocket_Controller : MonoBehaviour
         Rotate();
     }
 
+    void OnCollisionEnter(Collision collision)
+    {
+         switch(collision.gameObject.tag)
+        {
+            case "Safe":
+                print("Ok");
+                break;
+            case "Obstacles":
+                print("No Fuel");
+                break;
+            case "Fuel" :
+                print("Fuel Up");
+                break;
+            default:
+                print("Not Known");
+                break;
+        }
+    }
 
-    private void Thrust()
+    void Thrust()
     {
         if (Input.GetKey(KeyCode.Space))      // We can thrust while rotating.                
         {
