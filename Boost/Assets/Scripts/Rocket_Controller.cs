@@ -39,6 +39,9 @@ public class Rocket_Controller : MonoBehaviour
             case "Fuel" :
                 print("Fuel Up");
                 break;
+            case "Finish":
+                print("You Win");
+                break;
             default:
                 print("Not Known");
                 break;
