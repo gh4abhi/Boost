@@ -16,6 +16,12 @@ public class Rocket_Controller : MonoBehaviour
     private AudioClip hitSound;
     [SerializeField]
     private AudioClip successSound;
+    [SerializeField]
+    private ParticleSystem mainEngineParticles;
+    [SerializeField]
+    private ParticleSystem hitParticles;
+    [SerializeField]
+    private ParticleSystem successParticles;
 
     enum State { Alive, Dying, Transcending };
 
@@ -72,6 +78,7 @@ public class Rocket_Controller : MonoBehaviour
         audioSource.Stop();
         audioSource.PlayOneShot(hitSound);
         print("No Fuel");
+        hitParticles.Play();
         Invoke("LoadSceneOne", 1f);
     }
 
@@ -81,6 +88,7 @@ public class Rocket_Controller : MonoBehaviour
         audioSource.PlayOneShot(successSound);
         print("You Win");
         state = State.Transcending;
+        successParticles.Play();
         Invoke("LoadNextScene", 1f);
     }
 
@@ -97,10 +105,12 @@ public class Rocket_Controller : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.Space))      // We can thrust while rotating.                
         {
+            mainEngineParticles.Play();
             ApplyThrust();
         }
         else
         {
+            mainEngineParticles.Stop();
             audioSource.Stop();
         }
     }
