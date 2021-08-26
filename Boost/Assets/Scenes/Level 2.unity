@@ -1492,36 +1492,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rocket Ship
       objectReference: {fileID: 0}
-    - target: {fileID: 8971497399232127991, guid: 04c820e6fa5d1af478df363684b95a27,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8971497399232127991, guid: 04c820e6fa5d1af478df363684b95a27,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8971497399232127991, guid: 04c820e6fa5d1af478df363684b95a27,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8971497399232127991, guid: 04c820e6fa5d1af478df363684b95a27,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8971497399232127991, guid: 04c820e6fa5d1af478df363684b95a27,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8971497399232127991, guid: 04c820e6fa5d1af478df363684b95a27,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04c820e6fa5d1af478df363684b95a27, type: 3}
 --- !u!1001 &1775682414
@@ -1742,7 +1712,7 @@ PrefabInstance:
     - target: {fileID: 5181169456646953790, guid: b03710dadea0fcb4386e9c1c55383d61,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: -70.377
+      value: -80.06791
       objectReference: {fileID: 0}
     - target: {fileID: 5181169456646953790, guid: b03710dadea0fcb4386e9c1c55383d61,
         type: 3}
