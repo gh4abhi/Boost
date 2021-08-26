@@ -22,6 +22,8 @@ public class Rocket_Controller : MonoBehaviour
     private ParticleSystem hitParticles;
     [SerializeField]
     private ParticleSystem successParticles;
+    [SerializeField]
+    float levelLoadDelay = 2f;
 
     enum State { Alive, Dying, Transcending };
 
@@ -79,7 +81,7 @@ public class Rocket_Controller : MonoBehaviour
         audioSource.PlayOneShot(hitSound);
         print("No Fuel");
         hitParticles.Play();
-        Invoke("LoadSceneOne", 1f);
+        Invoke("LoadSceneOne", levelLoadDelay);
     }
 
     void StartSuccessSequence()
@@ -89,7 +91,7 @@ public class Rocket_Controller : MonoBehaviour
         print("You Win");
         state = State.Transcending;
         successParticles.Play();
-        Invoke("LoadNextScene", 1f);
+        Invoke("LoadNextScene", levelLoadDelay);
     }
 
     void LoadNextScene()
