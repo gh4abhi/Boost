@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Rocket_Controller : MonoBehaviour
@@ -29,6 +30,8 @@ public class Rocket_Controller : MonoBehaviour
 
     State state = State.Alive;
 
+    public bool collisionsDisabled = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,14 +46,19 @@ public class Rocket_Controller : MonoBehaviour
         {
             RespondToThrustInput();
             RespondToRotateInput();
+            if (Debug.isDebugBuild)
+            {
+                RespondToDebugKeys();
+            }
         }
     }
+
 
     // todo fix sound bug.
 
     void OnCollisionEnter(Collision collision)
     {
-        if(state!=State.Alive) // Ignore collsions when dead.
+        if(state!=State.Alive || collisionsDisabled) // Ignore collsions when dead.
         {
             return;
         }
@@ -96,7 +104,13 @@ public class Rocket_Controller : MonoBehaviour
 
     void LoadNextScene()
     {
-        SceneManager.LoadScene(1); // todo for more than 1 level.
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        int nextSceneIndex = currentSceneIndex + 1;
+        if(nextSceneIndex==SceneManager.sceneCountInBuildSettings)
+        {
+            nextSceneIndex = 0;
+        }
+        SceneManager.LoadScene(nextSceneIndex); // todo for more than 1 level.
     }
     void LoadSceneOne()
     {
@@ -141,5 +155,16 @@ public class Rocket_Controller : MonoBehaviour
         rigidBody.freezeRotation = false;
     }
 
+    void RespondToDebugKeys()
+    {
+        if(Input.GetKeyDown(KeyCode.L))
+        {
+            LoadNextScene();
+        }
+        else if(Input.GetKeyDown(KeyCode.C))
+        {
+            collisionsDisabled = !collisionsDisabled;
+        }
+    }
 
 }
