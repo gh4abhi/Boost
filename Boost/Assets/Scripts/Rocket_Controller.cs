@@ -89,7 +89,7 @@ public class Rocket_Controller : MonoBehaviour
         audioSource.PlayOneShot(hitSound);
         print("No Fuel");
         hitParticles.Play();
-        Invoke("LoadSceneOne", levelLoadDelay);
+        Invoke("LoadLoseScene", levelLoadDelay);
     }
 
     void StartSuccessSequence()
@@ -106,15 +106,15 @@ public class Rocket_Controller : MonoBehaviour
     {
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         int nextSceneIndex = currentSceneIndex + 1;
-        if(nextSceneIndex==SceneManager.sceneCountInBuildSettings)
+        if(nextSceneIndex==SceneManager.sceneCountInBuildSettings-2)
         {
-            nextSceneIndex = 0;
+            nextSceneIndex = SceneManager.sceneCountInBuildSettings - 1;
         }
         SceneManager.LoadScene(nextSceneIndex); // todo for more than 1 level.
     }
-    void LoadSceneOne()
+    void LoadLoseScene()
     {
-        SceneManager.LoadScene(0); // todo for more than 1 level.
+        SceneManager.LoadScene(SceneManager.sceneCountInBuildSettings-2); // todo for more than 1 level.
     }
 
     void RespondToThrustInput()
