@@ -1,2 +1,3 @@
 # Boost
-Game made in Unity 3D.
+Game Name - Rocket Legends.
+Demo Link - https://play.unity.com/mg/other/webgl-build-280
